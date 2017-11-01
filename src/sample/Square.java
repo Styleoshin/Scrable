@@ -32,9 +32,11 @@ class Tile {
 public class Square extends Sprite {
     private boolean tileLocked = false;
     private Tile tile = null;
+    private SquareType squareType = null ;
 
-    Square(String filenameImage) {
+    Square(String filenameImage, SquareType squareType) {
         super(filenameImage);
+        this.squareType = squareType;
     }
 
     public boolean isTileLocked() {
