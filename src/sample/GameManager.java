@@ -6,13 +6,15 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class Main extends Application {
+public class GameManager extends Application {
+
+    private MenuManager  menu = new MenuManager();
 
     @Override
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
-        primaryStage.setTitle("Shoot'em up");
-        primaryStage.setScene(new Scene(root, 300, 275));
+        primaryStage.setTitle("Scrabble");
+        primaryStage.setScene(new Scene(menu));
         primaryStage.show();
     }
 
