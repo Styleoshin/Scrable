@@ -98,6 +98,8 @@ public class MenuManager extends Pane {
 
         List<Pair<String, Runnable>> menu = Arrays.asList(
                 new Pair<String, Runnable>("Online game", () -> {
+                    showMenuOnline();
+                    update();
                 }),
                 new Pair<String, Runnable>("Local game", () -> {
                 }),
@@ -109,6 +111,22 @@ public class MenuManager extends Pane {
         );
         menuData = menu;
     }
+
+    private void showMenuOnline() {
+
+        List<Pair<String, Runnable>> menu= Arrays.asList(
+                new Pair<String, Runnable>("Host game", () -> {
+                }),
+                new Pair<String, Runnable>("Join game", () -> {
+                }),
+                new Pair<String, Runnable>("Back menu", () -> {
+                    showMainMenu();
+                    update();
+                })
+        );
+        menuData = menu;
+    }
+
 
     private void update() {
         menuBox.getChildren().clear();
