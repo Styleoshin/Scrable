@@ -90,7 +90,24 @@ public class MenuManager extends Pane {
 
     public MenuManager() {
         addBackground();
+        showMainMenu();
         update();
+    }
+
+    private void showMainMenu() {
+
+        List<Pair<String, Runnable>> menu = Arrays.asList(
+                new Pair<String, Runnable>("Online game", () -> {
+                }),
+                new Pair<String, Runnable>("Local game", () -> {
+                }),
+                new Pair<String, Runnable>("Tutorial", () -> {
+                }),
+    /*    new Pair<String, Runnable>("Options", () -> {
+        }),*/
+                new Pair<String, Runnable>("Exit", Platform::exit)
+        );
+        menuData = menu;
     }
 
     private void update() {
