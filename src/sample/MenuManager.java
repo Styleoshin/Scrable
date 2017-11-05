@@ -126,8 +126,7 @@ public class MenuManager extends Pane {
         );
         menuData = menu;
     }
-
-
+    
     private void update() {
         menuBox.getChildren().clear();
         getChildren().remove(menuBox);
