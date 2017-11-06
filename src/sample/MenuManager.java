@@ -103,10 +103,6 @@ public class MenuManager extends Pane {
                 }),
                 new Pair<String, Runnable>("Local game", () -> {
                 }),
-                new Pair<String, Runnable>("Tutorial", () -> {
-                }),
-    /*    new Pair<String, Runnable>("Options", () -> {
-        }),*/
                 new Pair<String, Runnable>("Exit", Platform::exit)
         );
         menuData = menu;
