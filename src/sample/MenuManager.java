@@ -22,7 +22,7 @@ import javafx.scene.text.Text;
 import javafx.util.Duration;
 import javafx.util.Pair;
 
-import java.awt.*;
+import java.awt.Toolkit;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
