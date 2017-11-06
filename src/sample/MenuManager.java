@@ -118,6 +118,7 @@ class MenuNetwork extends Pane {
     private double lineX = WIDTH / 2 - 100;
     private double lineY = HEIGHT / 3 + 50;
 
+    private MenuNetwork menuNetwork = new MenuNetwork();
     private boolean startAnimationLine = true;
 
     private List<Pair<String, Runnable>> menuData = null;
