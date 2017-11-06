@@ -4,13 +4,18 @@ import javafx.animation.ScaleTransition;
 import javafx.animation.TranslateTransition;
 import javafx.application.Platform;
 import javafx.beans.binding.Bindings;
+import javafx.geometry.HPos;
 import javafx.scene.Node;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.Spinner;
 import javafx.scene.effect.BoxBlur;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.effect.Effect;
 import javafx.scene.effect.GaussianBlur;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
@@ -18,6 +23,7 @@ import javafx.scene.shape.Line;
 import javafx.scene.shape.Polygon;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.util.Duration;
 import javafx.util.Pair;
@@ -73,7 +79,38 @@ class MenuItem extends Pane {
     }
 }
 
-public class MenuManager extends Pane {
+class MenuNetwork extends Pane {
+    GridPane gridPane = new GridPane();
+
+    MenuNetwork() {
+        getChildren().add(gridPane);
+    }
+
+    public void createOnlineServer() {
+        gridPane.getChildren().clear();
+
+        Label labelPort = new Label("Enter number of port : ");
+        Label labelNumberPlayer = new Label("Enter number of players : ");
+        Spinner port = new Spinner(40000, 65536, 40000);
+        Spinner numberPlayer = new Spinner(2, 4, 2);
+
+        labelPort.setFont(Font.font("Arial", FontWeight.BOLD, 14));
+        labelNumberPlayer.setFont(Font.font("Arial", FontWeight.BOLD, 14));
+
+        Button host = new Button("Start host game");
+
+        gridPane.add(labelPort, 0, 0);
+        gridPane.add(labelNumberPlayer, 0, 1);
+        gridPane.add(port, 1, 0);
+        gridPane.add(numberPlayer, 1, 1);
+        gridPane.add(host, 0, 2, 2, 1);
+
+        gridPane.setHalignment(host, HPos.CENTER);
+        gridPane.setVgap(10);
+    }
+}
+
+    public class MenuManager extends Pane {
 
     private static final double WIDTH = Toolkit.getDefaultToolkit().getScreenSize().getWidth();
     private static final double HEIGHT = Toolkit.getDefaultToolkit().getScreenSize().getHeight();
