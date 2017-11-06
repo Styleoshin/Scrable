@@ -161,6 +161,12 @@ class MenuNetwork extends Pane {
         menuData = menu;
     }
 
+    private void clear() {
+        menuBox.getChildren().clear();
+        getChildren().remove(line);
+        startAnimationLine = true ;
+    }
+
     private void update() {
         menuBox.getChildren().clear();
         getChildren().remove(menuBox);
