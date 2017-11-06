@@ -4,6 +4,7 @@ import javafx.animation.ScaleTransition;
 import javafx.animation.TranslateTransition;
 import javafx.application.Platform;
 import javafx.beans.binding.Bindings;
+import javafx.event.EventHandler;
 import javafx.geometry.HPos;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
@@ -15,6 +16,7 @@ import javafx.scene.effect.Effect;
 import javafx.scene.effect.GaussianBlur;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
@@ -91,7 +93,7 @@ class MenuNetwork extends Pane {
 
         Label labelPort = new Label("Enter number of port : ");
         Label labelNumberPlayer = new Label("Enter number of players : ");
-        Spinner port = new Spinner(40000, 65536, 40000);
+        Spinner port = new Spinner(40000, 65536, 1024);
         Spinner numberPlayer = new Spinner(2, 4, 2);
 
         labelPort.setFont(Font.font("Arial", FontWeight.BOLD, 14));
@@ -150,6 +152,21 @@ class MenuNetwork extends Pane {
 
         List<Pair<String, Runnable>> menu= Arrays.asList(
                 new Pair<String, Runnable>("Host game", () -> {
+                    clear();
+                    menuNetwork.createOnlineServer();
+                    Button back = new Button ("Back");
+                    menuBox.getChildren().add(menuNetwork);
+                    menuBox.getChildren().add(back);
+                    menuBox.setTranslateX(WIDTH/3);
+                    menuBox.setTranslateY(HEIGHT/2);
+
+                    back.addEventHandler(MouseEvent.MOUSE_CLICKED,
+                            new EventHandler<MouseEvent>() {
+                                @Override public void handle(MouseEvent e) {
+                                    showMenuOnline();
+                                    update();
+                                }
+                            });
                 }),
                 new Pair<String, Runnable>("Join game", () -> {
                 }),
