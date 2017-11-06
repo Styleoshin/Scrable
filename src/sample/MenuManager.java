@@ -10,6 +10,7 @@ import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.Spinner;
+import javafx.scene.control.TextField;
 import javafx.scene.effect.BoxBlur;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.effect.Effect;
@@ -110,6 +111,31 @@ class MenuNetwork extends Pane {
         gridPane.setHalignment(host, HPos.CENTER);
         gridPane.setVgap(10);
     }
+
+    public void joinOnlineServer() {
+        gridPane.getChildren().clear();
+
+        Label labelAdress = new Label("Enter address ip : ");
+        Label labelPort = new Label("Enter number port : ");
+
+        TextField addressIp = new TextField ();
+        Spinner numberPort = new Spinner(40000,65535,1024);
+
+        labelAdress .setFont(Font.font("Arial", FontWeight.BOLD, 14));
+        labelPort.setFont(Font.font("Arial", FontWeight.BOLD, 14));
+
+        Button joinOnline = new Button ("Join game");
+
+        gridPane.add(labelAdress,0,0);
+        gridPane.add(labelPort,0,1);
+        gridPane.add(addressIp,1,0);
+        gridPane.add(numberPort,1,1);
+        gridPane.add(joinOnline,0,2,2,1);
+
+        gridPane.setHalignment(joinOnline, HPos.CENTER);
+        gridPane.setVgap(10);
+    }
+
 }
 
     public class MenuManager extends Pane {
