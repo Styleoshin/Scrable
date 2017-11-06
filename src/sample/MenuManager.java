@@ -195,6 +195,21 @@ class MenuNetwork extends Pane {
                             });
                 }),
                 new Pair<String, Runnable>("Join game", () -> {
+                    clear();
+                    menuNetwork.joinOnlineServer();
+                    Button back = new Button ("Back");
+                    menuBox.getChildren().add(menuNetwork);
+                    menuBox.getChildren().add(back);
+                    menuBox.setTranslateX(WIDTH/3);
+                    menuBox.setTranslateY(HEIGHT/2);
+
+                    back.addEventHandler(MouseEvent.MOUSE_CLICKED,
+                            new EventHandler<MouseEvent>() {
+                                @Override public void handle(MouseEvent e) {
+                                    showMenuOnline();
+                                    update();
+                                }
+                            });
                 }),
                 new Pair<String, Runnable>("Back menu", () -> {
                     showMainMenu();
