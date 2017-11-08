@@ -1,3 +1,7 @@
+package sample.Network;
+
+import sample.Player;
+
 import java.io.IOException;
 
 public class Host extends Player {
