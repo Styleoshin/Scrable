@@ -4,7 +4,7 @@ public class Player {
     private int score = 0;
     private String name;
 
-    Player(String name) {
+    protected Player(String name) {
         this.name = name;
     }
 
