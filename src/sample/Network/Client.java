@@ -9,7 +9,7 @@ public class Client extends Player {
 
     private NetworkClient network;
 
-    Client(String name, String ip, int port) throws IOException {
+    public Client(String name, String ip, int port) throws IOException {
         super(name);
         network.connect(ip,port);
     }
