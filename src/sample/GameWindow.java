@@ -28,6 +28,8 @@ public class GameWindow extends Pane {
     private HBox layoutPlayer = new HBox(+5);
     private BorderPane borderPane = new BorderPane();
 
+    private  HBox layoutTop = new HBox(10);
+
     GameWindow(Board board, Rack rack) {
         this.board = board;
         this.rack = rack;
@@ -65,9 +67,7 @@ public class GameWindow extends Pane {
         layoutPlayer.getChildren().add(pane);
     }
 
-    public void addButtonStart() {
-        borderPane.setLeft(buttonStart);
-    }
+    public void addButtonStart() { layoutTop.getChildren().add(buttonStart); }
 
     private void initTopPane() {
         Button buttonDictionary = new Button("Dictionary",new ImageView(getClass().getResource("/res/dictionary.png").toExternalForm()));
@@ -79,7 +79,9 @@ public class GameWindow extends Pane {
         layout.getChildren().add(buttonDictionary);
         layout.getChildren().add(buttonChat);
 
-        paneTop.getChildren().add(layout);
+        layoutTop.getChildren().add(layout);
+
+        paneTop.getChildren().add(layoutTop);
     }
 }
 
