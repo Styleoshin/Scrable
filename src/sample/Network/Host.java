@@ -6,7 +6,7 @@ import java.io.IOException;
 
 public class Host extends Player {
 
-    private NetworkServer network;
+    private NetworkServer network = new NetworkServer();
 
     public Host(String name, int port, int numberPlayer) throws IOException {
         super(name);

@@ -7,7 +7,7 @@ import java.io.IOException;
 
 public class Client extends Player {
 
-    private NetworkClient network;
+    private NetworkClient network = new NetworkClient();
 
     public Client(String name, String ip, int port) throws IOException {
         super(name);

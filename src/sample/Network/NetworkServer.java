@@ -9,12 +9,14 @@ public class NetworkServer {
     private ServerSocket server;
     private Socket socket ;
 
-    NetworkServer() throws IOException {
-        socket = server.accept();
-    }
-
     public void connect(int port, int numberPlayer) throws IOException {
+<<<<<<< HEAD
             server = new ServerSocket(port, numberPlayer);
         }
+=======
+        server = new ServerSocket(port, numberPlayer);
+        socket = server.accept();
+    }
+>>>>>>> d4c31f4... Fix crash Network
 }
 
